@@ -1,24 +1,25 @@
-n=int(input())
-a=0
-b=0
-for i in range(2,int(n**0.5)+1):
-    if n%i==0:
-        break
+def prime(a):
+    c=0
+    for i in range(1,a+1):
+        if a%i==0:
+            c+=1
+    if c==2:
+        return 1
+    else:
+        return 0
+def rev(a):
+    su=0
+    while a>0:
+        rem=a%10
+        su=(su*10)+rem
+        a//=10
+    return su
+a=int(input())
+arev=rev(a)
+if prime(a)==1:
+    if prime(arev)==1:
+        print("circular prime")
+    else:
+        print("prime but not a circular prime")
 else:
-    a+=1
-rev=0
-while n:
-    d=n%10
-    n=n//10
-    rev=(rev*10)+d
-for i in range(2,int(rev**0.5)+1):
-    if rev%i==0:
-        break
-else:
-    b+=1
-if(a==0):
-    print('not prime')
-elif(a!=0 and b==0):
-    print('prime but not a circular prime')
-elif(a!=0 and b!=0):
-    print('circular prime')
+    print("not prime")
