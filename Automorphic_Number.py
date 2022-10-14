@@ -1,13 +1,15 @@
-n=int(input())
-c=0
-temp=n
-while n!=0:
-    d=n%10
-    n=n//10
-    c+=1
-n=temp
-b=n*n
-if b%(10**c)==n:
-    print('Automorphic Number')
+import math
+def nod(a):
+    c=0
+    while a>0:
+        r=a%10
+        c+=1
+        a//=10
+    return c
+a=int(input())
+n=nod(a)
+asq=a*a
+if asq%math.pow(10,n)==a:
+    print("Automorphic Number")
 else:
-    print('Not an Automorphic Number')
+    print("Not an Automorphic Number")
