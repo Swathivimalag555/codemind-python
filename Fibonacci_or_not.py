@@ -1,15 +1,18 @@
-n=int(input())
-if n==0 or n==1:
-    print(n)
-else:
-    a=0
-    b=1
-    c=a+b
-    while c<n:
-        a=b
-        b=c
-        c=a+b
-    if c==n:
-        print("True")
+a=int(input())
+fa=0
+fb=1
+fn=fa+fb
+c=0
+for i in range(100):
+    if fa==a:
+        c=1
+        break
     else:
-        print("False")
+        fn=fa+fb
+        fa=fb
+        fb=fn
+        continue
+if c==1:
+    print("True")
+else:
+    print("False")
